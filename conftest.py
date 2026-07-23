@@ -10,19 +10,16 @@ imported, because db.py reads DATABASE_URL at import time.
 
 import os
 import tempfile
+import pytest
+from fastapi.testclient import TestClient
+from sqlalchemy import event
+from db import Base, engine
+from fastapi_config import app
 
 _tmp_dir = tempfile.mkdtemp(prefix="app_test_db_")
 os.environ["DATABASE_URL"] = f"sqlite:///{_tmp_dir}/test.db"
 os.environ.setdefault("SECRET_KEY", "test-secret-key")
 os.environ.setdefault("ALGORITHM", "HS256")
-
-import pytest
-from fastapi.testclient import TestClient
-from sqlalchemy import event
-
-from db import Base, engine
-from fastapi_config import app
-
 
 @event.listens_for(engine, "connect")
 def _enable_sqlite_foreign_keys(dbapi_connection, connection_record):
