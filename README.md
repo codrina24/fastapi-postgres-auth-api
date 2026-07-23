@@ -68,4 +68,4 @@ pytest
 
 The suite covers signup, login, the auth dependency, and the account routes, both through the actual HTTP layer (`tests/test_auth.py`, `tests/test_account.py`) and at the unit level directly against `jwt_auth.py` (`tests/test_jwt_auth.py`) — including a token-expiry check that doesn't require waiting 15 minutes for a token to actually expire.
 
-Tests never touch the real database: `conftest.py` points the app at a temporary SQLite file for the duration of the run and tears it down afterward, so running the suite is safe on any machine, with or without Postgres set up.
+Tests never touch the real database: `pytest.py` points the app at a temporary SQLite file for the duration of the run and tears it down afterward, so running the suite is safe on any machine, with or without Postgres set up.
