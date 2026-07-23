@@ -9,7 +9,7 @@ A REST API built with FastAPI and PostgreSQL, currently focused on authenticatio
 
 ## Authentication
 
-The authentication system follows FastAPI's official security documentation (OAuth2 with Password flow and JWT bearer tokens) closely: `OAuth2PasswordBearer` for extracting the token from the request, `OAuth2PasswordRequestForm` for the login payload, and a `get_current_user` dependency that decodes the JWT and loads the user for every protected route. This is the same pattern FastAPI recommends for production APIs, and I implemented it end to end myself rather than copying a boilerplate.
+The authentication system follows FastAPI's official security documentation (OAuth2 with Password flow and JWT bearer tokens) closely: `OAuth2PasswordBearer` for extracting the token from the request, `OAuth2PasswordRequestForm` for the login payload, and a `get_current_user` dependency that decodes the JWT and loads the user for every protected route. This is the same pattern FastAPI recommends for production APIs.
 
 A few things I made sure to get right:
 
